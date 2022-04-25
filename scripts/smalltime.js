@@ -127,6 +127,7 @@ Hooks.on('init', () => {
       9: '9',
       10: '10',
       11: '11',
+	  12: '12',
     },
     default: 0,
   });
@@ -154,8 +155,10 @@ Hooks.on('init', () => {
       15: '15',
       20: '20',
       30: '30',
+	  60: '60',
+	  120: '120',
     },
-    default: 10,
+    default: 120,
   });
 
   game.settings.register('smalltime', 'large-step', {
@@ -168,9 +171,10 @@ Hooks.on('init', () => {
       20: '20',
       30: '30',
       60: '60',
-      240: '120',
+      120: '120',
+	  1440: '1440',
     },
-    default: 60,
+    default: 1440,
   });
 
   game.settings.register('smalltime', 'opacity', {
@@ -1346,6 +1350,9 @@ function getDate(provider, variant) {
 
   // 2021 / 8 / 12
   displayDate.push(stringAfter(year, ' / ') + stringAfter(month, ' / ') + date);
+  
+  // 2021.12
+  displayDate.push('Année ' + year + ', Jour ' + date + ' \xa0\xa0(' + year + '.' + date + ')');
 
   return displayDate[variant];
 }
